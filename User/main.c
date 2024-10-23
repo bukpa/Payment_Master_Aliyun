@@ -6,9 +6,15 @@
 
 #include "RCC_CLK_Config.h"
 #include "USART1.h"
-#include "App_USART1_Recv.h"
 #include "TIM3.h"
 
+#include "DS1302.h"
+
+#include "App_USART1_Recv.h"
+
+
+
+uint8_t Cheak_Result = 0;
 
 /*
     1、TaskHandle_t - 任务句柄类型, 用于引用和管理任务
@@ -73,6 +79,7 @@ void vTask2(void * pvParameters)
     while(1)
     {
 //        USART1_SendData(DATA_ARRAY, 3);
+//        delay_1us(1000000);
         vTaskDelay(pdMS_TO_TICKS(2000));
     }
 }
@@ -126,7 +133,7 @@ void vStartTask(void * pvParameters)
     xTaskCreate(
         (TaskFunction_t)          vTask2,               //参数1：函数指针类型 - TaskFunction_t类型, 需外部传入一个任务函数名（地址）   [补充]：这个函数将作为任务的执行体
         (const char *)            "Task2",              //参数2：字符串指针类型 - const char *类型, 需外部传入一个任务名称（地址）     [补充]：通常是一个描述任务的简短字符串, 用于调试和监视, 最大长度：configMAX_TASK_NAME_LEN
-        (configSTACK_DEPTH_TYPE)  256,                   //参数3：uint16_t类型 - configSTACK_DEPTH_TYPE类型, 任务堆栈的深度             [补充]：堆栈深度的单位是半字（2个字节）,这个值定义了任务在运行时所需的堆栈空间大小。128 * 2 = 256字节
+        (configSTACK_DEPTH_TYPE)  256,                  //参数3：uint16_t类型 - configSTACK_DEPTH_TYPE类型, 任务堆栈的深度             [补充]：堆栈深度的单位是半字（2个字节）,这个值定义了任务在运行时所需的堆栈空间大小。128 * 2 = 256字节
         (void * const)            NULL,                 //参数4：可以是任何的指针类型, 需外部传入一个变量地址                          [补充]：传递给任务函数的参数指针。可以传递任何类型的数据，任务函数会将其转换为正确的类型使用。如果不需要传递参数，可以传递 NULL -> (void * const) NULL
         (UBaseType_t)             4,                    //参数5：unsigned long类型 - UBaseType_t类型, 任务的优先级                     [补充]：数值越大，优先级越高
         (TaskHandle_t *)          &xTask2_Handler       //参数6：指向 tskTaskControlBlock 结构体的指针类型 - TaskHandle_t *类型（任务句柄类型的指针）,需外部传入一个任务句柄变量的地址          [补充]：创建任务后，任务句柄会存储在此指针指向的变量中。如果不需要任务句柄，可以传递 NULL -> (TaskHandle_t *) NULL
@@ -139,7 +146,7 @@ void vStartTask(void * pvParameters)
     vTaskDelete(xStartTask_Handler);
 
 }
-
+u8 ds1302IsNormal = false;
 int main(void)
 {
     HSE_SetSysClock(RCC_PLLMul_6);
@@ -150,6 +157,10 @@ int main(void)
     USART1_Init();   
     
     TIM3_Init();
+    
+    Cheak_Result = Power_On_Cheak_DS1302();
+    
+    printf("\r\n[Cheak] >>> %s\r\n", (Cheak_Result ? "DS1302 State Normal!" : "Error:DS1302 State Abnormal!"));
 
     LED_Init();
 //    USART_SendByte(USART1,0x61);

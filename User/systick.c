@@ -35,6 +35,7 @@ OF SUCH DAMAGE.
 #include "stm32f10x.h"
 #include "systick.h"
 #include "FreeRTOS.h"
+#include "task.h"
 
 volatile static uint32_t delay;
 
@@ -116,7 +117,6 @@ void delay_1us(uint32_t count) {
       if(tcnt>=ticks)break;
     }
   }
-
 }
 void delay_1ms(uint32_t count)
 {

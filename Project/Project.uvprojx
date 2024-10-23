@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>SYS_SUPPORT_OS,HSE_VALUE=12000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\RCC;..\User;..\Libraries\USART1;..\App\App_USART1_Recv;..\Libraries\TIM3</IncludePath>
+              <IncludePath>..\Libraries\RCC;..\User;..\Libraries\USART1;..\App\App_USART1_Recv;..\Libraries\TIM3;..\Hardware\DS1302</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -421,6 +421,16 @@
               <FileName>TIM3.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\TIM3\TIM3.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Hardware</GroupName>
+          <Files>
+            <File>
+              <FileName>DS1302.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\DS1302\DS1302.c</FilePath>
             </File>
           </Files>
         </Group>

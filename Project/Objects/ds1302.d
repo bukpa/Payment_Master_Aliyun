@@ -1,4 +1,5 @@
-./objects/main.o: ..\User\main.c \
+./objects/ds1302.o: ..\Hardware\DS1302\DS1302.c \
+  ..\Hardware\DS1302\DS1302.h ..\User\main.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   RTE\_Target_1\RTE_Components.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm3.h \
@@ -18,7 +19,6 @@
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_tim.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\stm32f10x_usart.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\misc.h \
-  ..\User\systick.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\FreeRTOS.h \
   RTE\RTOS\FreeRTOSConfig.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\CMSIS\RTOS2\FreeRTOS\Include\freertos_evr.h \
@@ -29,9 +29,6 @@
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\mpu_wrappers.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\task.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\list.h \
-  ..\Libraries\RCC\RCC_CLK_Config.h ..\Libraries\USART1\USART1.h \
-  ..\User\main.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\semphr.h \
   D:\software\Keil_MDK_package\Keil_MDK\Arm\pack\ARM\CMSIS-FreeRTOS\10.5.1\Source\include\queue.h \
-  ..\Libraries\TIM3\TIM3.h ..\Hardware\DS1302\DS1302.h \
-  ..\App\App_USART1_Recv\App_USART1_Recv.h
+  ..\User\systick.h

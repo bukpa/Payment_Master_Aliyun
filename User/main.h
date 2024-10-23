@@ -15,6 +15,14 @@
 #include <stdarg.h>
 
 
+#define SYSTEM_DEBUG                1               //系统打印信息
+#define SYSTEM_WARNING              1               //系统警告信息
+#define SEND_ATCMD_DEBUG            1               //发送AT指令信息
+#define RECV_ATCMD_DEBUG            1               //接收AT指令信息
+#define SEND_NETDATA_DEBUG          1               //发送AT指令信息
+#define RECV_NETDATA_DEBUG          1               //接收平台数据信息
+#define U3RECV_DEBUG                1               //串口屏数据信息
+
 
 #if  SYSTEM_DEBUG
 #define SystemPrintf(fmt,args...)                   printf("|*** System Debug : "#fmt"\r\n",##args)	

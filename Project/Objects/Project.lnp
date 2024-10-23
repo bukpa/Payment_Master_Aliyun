@@ -5,6 +5,7 @@
 ".\objects\rcc_clk_config.o"
 ".\objects\usart1.o"
 ".\objects\tim3.o"
+".\objects\ds1302.o"
 ".\objects\app_usart1_recv.o"
 ".\objects\misc.o"
 ".\objects\stm32f10x_bkp.o"
