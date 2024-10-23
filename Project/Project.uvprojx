@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>SYS_SUPPORT_OS,HSE_VALUE=12000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Libraries\RCC;..\User;..\Libraries\USART1;..\App\App_USART1_Recv;..\Libraries\TIM3;..\Hardware\DS1302</IncludePath>
+              <IncludePath>..\Libraries\RCC;..\User;..\Libraries\USART1;..\App\App_USART1_Recv;..\Libraries\TIM3;..\Hardware\DS1302;..\Libraries\SPI2;..\Hardware\W25Q64;..\Driver\TLSF;..\Driver\Link_List;..\Driver\Circular_Queue;..\Driver\CRC16;..\Libraries\Flash;..\Libraries\IWDG</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -422,6 +422,26 @@
               <FileType>1</FileType>
               <FilePath>..\Libraries\TIM3\TIM3.c</FilePath>
             </File>
+            <File>
+              <FileName>SPI2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\SPI2\SPI2.c</FilePath>
+            </File>
+            <File>
+              <FileName>Flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Flash\Flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>IWDG.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\IWDG\IWDG.c</FilePath>
+            </File>
+            <File>
+              <FileName>IWDG.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Libraries\IWDG\IWDG.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -432,6 +452,11 @@
               <FileType>1</FileType>
               <FilePath>..\Hardware\DS1302\DS1302.c</FilePath>
             </File>
+            <File>
+              <FileName>W25Q64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\W25Q64\W25Q64.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -441,6 +466,31 @@
               <FileName>App_USART1_Recv.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\App\App_USART1_Recv\App_USART1_Recv.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Driver</GroupName>
+          <Files>
+            <File>
+              <FileName>TLSF.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\TLSF\TLSF.c</FilePath>
+            </File>
+            <File>
+              <FileName>Link_List.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Link_List\Link_List.c</FilePath>
+            </File>
+            <File>
+              <FileName>Circular_Queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Circular_Queue\Circular_Queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>CRC16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\CRC16\CRC16.c</FilePath>
             </File>
           </Files>
         </Group>

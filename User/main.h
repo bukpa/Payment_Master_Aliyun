@@ -63,6 +63,6 @@
 
 
 extern xSemaphoreHandle xUSART1_Recv_Semaphore;
-
+extern xSemaphoreHandle xTLSF_MallocLock_Mutex;
 
 #endif /* __MAIN_H */

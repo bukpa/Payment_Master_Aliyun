@@ -47,6 +47,8 @@ TaskHandle_t xTask2_Handler;
     3、通过这种方式，FreeRTOS 可以使用相同的底层机制来管理队列、信号量和互斥量，简化了内核的实现
 */
 xSemaphoreHandle xUSART1_Recv_Semaphore = NULL;
+xSemaphoreHandle xTLSF_MallocLock_Mutex = NULL;
+
 
 
 void LED_Init(void)
@@ -115,6 +117,29 @@ void vStartTask(void * pvParameters)
     {
         printf("CREAT SIGNAL SUCCESS!\n");
     }
+    
+    
+    /* 
+        1、xSemaphoreCreateMutex 函数用于在 FreeRTOS 中创建一个互斥信号量（Mutex Semaphore），用于在多个任务之间用于实现任务间互斥访问共享资源的同步机制，确保同一时刻只有一个任务能够访问共享资源
+           互斥信号量具有优先级继承机制，可以防止优先级反转问题
+           优先级继承机制还可以防止高优先级任务被低优先级任务阻塞太久
+    
+        2、互斥信号量特点：2.1 互斥信号量是专门用于任务间互斥访问共享资源的
+                           2.2 互斥信号量具有优先级继承机制（Priority Inheritance），可以防止优先级反转问题。这意味着当低优先级任务持有互斥信号量且高优先级任务正在等待该信号量时，低优先级任务将继承高优先级任务的优先级，直到它释放信号量为止
+    
+        3、返回值：返回一个 SemaphoreHandle_t 类型的句柄，返回一个互斥信号量的句柄，用于后续对该信号量的操作。如果创建失败（例如内存不足），则返回 NULL
+    */
+    xTLSF_MallocLock_Mutex = xSemaphoreCreateMutex();
+    
+    if(xTLSF_MallocLock_Mutex == NULL)
+    {
+        printf("CREAT MUTEX SIGNAL FAIL!\n");
+    }
+    else
+    {
+        printf("CREAT MUTEX SIGNAL SUCCESS!\n");
+    }    
+    
     
     /* 进入临界区, 确保俩个子任务共处同一起跑线 */
     taskENTER_CRITICAL();  
